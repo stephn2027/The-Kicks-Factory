@@ -7,6 +7,7 @@ import {
 import { ProductImage } from './schemas/ProductImage';
 import { Product } from './schemas/Product';
 import { User } from './schemas/User';
+import { insertSeedData } from './seed-data/index';
 import 'dotenv/config';
 
 const databaseURL =
@@ -40,6 +41,12 @@ export default withAuth(
       adapter: 'mongoose',
       url: databaseURL,
       // add seeding here
+      async onConnect(keystone) {
+        console.log('Connected TO THE DATABZWE');
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone);
+        }
+      },
     },
     lists: createSchema({
       // schema items here
