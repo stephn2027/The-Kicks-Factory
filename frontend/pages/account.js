@@ -1,4 +1,3 @@
-export default function OrderPage() {
+export default function Account() {
   return <div>order</div>;
 }
-
