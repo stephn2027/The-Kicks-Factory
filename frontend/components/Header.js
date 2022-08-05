@@ -8,7 +8,7 @@ const Logo = styled.h1`
   position: relative;
   z-index: 2;
   background: red;
-  transform: skew(-7deg);
+  transform: skew(-20deg);
   a {
     color: white;
     text-decoration: none;
@@ -23,7 +23,7 @@ const HeaderStyles = styled.header`
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
   .sub-bar {
     display: grid;
@@ -36,16 +36,16 @@ export default function Header() {
   return (
     <HeaderStyles>
       <div className="bar">
-        <Link href="/">
-          <Logo>
+        <Logo>
+          <Link href="/">
             <a>The Kicks Factory</a>
-          </Logo>
-        </Link>
+          </Link>
+        </Logo>
+        <Nav />
       </div>
       <div className="sub-bar">
         <p>Search</p>
       </div>
-      <Nav />
     </HeaderStyles>
   );
 }
