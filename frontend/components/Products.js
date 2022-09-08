@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Product from './Product';
-import DisplayError from './ErrorMessage'; 
+import DisplayError from './ErrorMessage';
 
 export const ALL_PRODUCTS_QUERY = gql`
   query ALL_PRODUCTS_QUERY {
@@ -28,13 +28,14 @@ const ProductListStyles = styled.div`
 `;
 
 export default function Products() {
-   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
+  const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
   if (loading) return <p>Loading!...</p>;
   if (error) return <DisplayError>Error: {error.message}</DisplayError>;
 
   return (
     <div>
       <ProductListStyles>
+        
         {data.allProducts.map((product) => (
           <Product key={product.id} product={product} />
         ))}
